@@ -1,0 +1,2 @@
+username = phpcourses
+password = 123456
