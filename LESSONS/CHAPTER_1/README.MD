@@ -1,1 +1,2 @@
-Tesing PHP environment
+1-PHP Synthax and variables
+2-Data Types

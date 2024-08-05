@@ -7,8 +7,12 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         if(strlen($username) && strlen($password)) {
-            if($username = "phpcourses" && $password = "123456") {
+            if($username == "phpcourses" && $password == "123456") {
                 header("Location: http://localhost:8080/index.php?succ_msg=$succ_msg");
+            }
+            else{
+                $err_msg = "Incorrect username or password !";
+                header("Location: http://localhost:8080/index.php?err_msg=$err_msg");
             }
         }
         else{
