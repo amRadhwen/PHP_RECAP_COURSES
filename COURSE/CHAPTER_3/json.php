@@ -25,7 +25,7 @@
     var_dump($names_obj->Peter);
     // looping
     foreach($names_obj as $name => $age) {
-        var_dump("[$name: $age]");â
+        var_dump("[$name: $age]");
     }
             
     var_dump(json_decode($json_names, true)); // return associative array
