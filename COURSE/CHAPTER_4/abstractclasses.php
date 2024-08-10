@@ -21,3 +21,55 @@
     // abstract methods access modifier must be the same or less restricted
     // method type and args number must be the same, However the child classes may have optional args in addition
     
+    // Parent class
+    abstract class Car {
+        public $name;
+        
+        public function __construct($name) {
+            $this->name = $name;
+        }
+        
+        abstract public function intro($speed):string;
+    }
+    
+    // Child classes
+    class Audi extends Car {
+        
+        public function intro($speed):string {
+            return "Car model: {$this->name}";
+        }
+    }
+    
+    class Volvo extends Car {
+        
+        public function intro($speed):string {
+            return "Car model: {$this->name}";
+        }
+    }
+    
+    class Bmw extends Car {
+        
+        public $unit = "MPH";
+        
+        public function intro($speed, $unit="kMS"):string {
+            return "Car model: {$this->name}, Speed: $speed/$this->unit";
+        }
+    }
+    
+    // Objects
+    $audi = new Audi("Audi");
+    $volvo = new Volvo("Volvo");
+    $bmw = new Bmw("BMW");
+    
+    var_dump($audi->intro("180"));
+    var_dump($volvo->intro("180"));
+    var_dump($bmw->intro("200"));
+    
+    
+    
+    
+    
+    
+    
+    
+    
