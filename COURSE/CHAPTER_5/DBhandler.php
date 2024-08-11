@@ -21,7 +21,6 @@
         }
         
         public function connect() {
-            var_dump($this->dbname);
             try {   
                 if($this->dbname)
                     $this->con = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
