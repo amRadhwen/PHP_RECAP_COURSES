@@ -3,7 +3,7 @@
     // mysql databse creattion
     // mysql tables creation
 
-    // all demos are made using PHP OOP
+    // using PHP OOP
 
     class DBconnection {
         private $servername;

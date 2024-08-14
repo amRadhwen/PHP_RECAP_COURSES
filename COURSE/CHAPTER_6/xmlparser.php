@@ -1,5 +1,8 @@
 <?php
-    
+    //for error handling
+    libxml_use_internal_errors(true);
+
+
     echo "<pre>";
     // XML language is a way to structure data for sharing across websites
     // example RSS feeds and Podcasts are written in XML
@@ -18,8 +21,8 @@
     // exp: XMLReader or XMLExpatParser
     
     // simplexml_load_string()
-    
-    $xmldata = "<?xml version='1.0' encoding='UTF-8' ?>"
+    // in this object ? is missing
+    $xmldata = "<?xml version='1.0' encoding='UTF-8' >"
             ."<note>"
             ."<to>Tove</to>"
             ."<from>Jani</from>"
@@ -27,6 +30,27 @@
             ."<body>Don't forget me this weekend !</body>"
             ."</note>";
     
-    $data = simplexml_load_string($xmldata) or die("Error loading xml data !");
-    var_dump($data);
+    $data = simplexml_load_string($xmldata);// or die("Error loading xml data !"); commented to handle error using xml error handler
+    if($data == false) {
+        foreach(libxml_get_errors() as $error) {
+            echo $error->message;
+        }
+    }
+    else 
+        var_dump($data);
+    
+    // load xml data from file
+    // simplexml_load_file()
+    $xmldata = simplexml_load_file("data.xml");
+    if($xmldata) {
+        var_dump($xmldata);
+    }
+    
+    //get node value
+    echo $xmldata->to."\n";
+    echo $xmldata->from."\n";
+    echo $xmldata->heading."\n";
+    echo $xmldata->body."\n";
+    
+    // there is more xml built-in functions to handle xml data
 
